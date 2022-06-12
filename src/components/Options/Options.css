@@ -1,0 +1,12 @@
+.option__name {
+  font-size: 0.9rem;
+}
+.option__value {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+  background-color: white;
+  font-size: 1.2rem;
+}

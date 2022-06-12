@@ -1,0 +1,27 @@
+.modal__diagram {
+  min-height: var(--modal-height);
+  max-height: 300px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+}
+
+.modal-body {
+  min-height: var(--modal-height);
+}
+
+.modal_FFE8E5 .modal-content {
+  background-color: var(--climb-theme);
+}
+
+.modal_CD9E9E .modal-content {
+  background-color: var(--workout-theme);
+}
+
+.modal_EBD9AB .modal-content {
+  background-color: var(--trampoline-theme);
+}
+
+.modal_EDFFC8 .modal-content {
+  background-color: var(--tricking-theme);
+}

@@ -1,0 +1,33 @@
+.carousel_caption {
+  position: static !important;
+  padding: 0 15% !important;
+}
+
+.carousel-indicators {
+  position: static !important;
+  margin-bottom: 0 !important;
+}
+
+/* .carousel-inner {
+  align-self: center !important;
+} */
+
+.tasks {
+  min-height: var(--modal-height);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tasks__title {
+  font-size: 1.6rem;
+}
+
+.tasks__description {
+  font-size: 1.1rem;
+  font-style: italic;
+}
+
+@media screen and (min-width: 576px ) {
+
+}

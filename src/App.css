@@ -1,38 +1,92 @@
-.App {
-  text-align: center;
+/* vars */
+:root {
+  --climb-theme: #FFE8E5;
+  --workout-theme: #CD9E9E;
+  --trampoline-theme: #EBD9AB;
+  --tricking-theme: #EDFFC8;
+  --modal-height: 50vh;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* vars */
+
+/* reset */
+figure {
+  margin: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+/* reset */
+
+/* general styles */
+
+.text_thin {
+  font-weight: 300;
+}
+
+.first-letter-cup::first-letter {
+  text-transform: capitalize;
+}
+
+.img_rotate {
+  transform: translateY(-50%);
+}
+
+.img_rotate {
+  margin-top: -40px;
+  animation: 10s linear 0s normal none infinite running img_rotate;
+  /* width: 100px; */
+}
+
+.btn_custom {
+  width: 100%;
+}
+
+.btn-primary {
+  border-color: transparent;
+}
+
+.btn_FFE8E5:focus {
+  box-shadow: 0 0 0 0.25rem rgb(24, 54, 87, 50%);
+}
+
+.btn_CD9E9E:focus {
+  box-shadow: 0 0 0 0.25rem rgb(55, 4, 4, 50%);
+}
+
+.btn_EBD9AB:focus {
+  box-shadow: 0 0 0 0.25rem rgb(103, 66, 55, 50%);
+}
+
+.btn_EDFFC8:focus {
+  box-shadow: 0 0 0 0.25rem rgb(64, 86, 10, 50%);
+}
+
+@media screen and (min-width: 576px) {
+  .btn_custom {
+    width: 50%;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+@media screen and (min-width: 998px) {
+  .btn_custom {
+    width: 25%;
+  }
 }
 
-.App-link {
-  color: #61dafb;
+@media screen and (min-width: 998px) {
+  .container_custom {
+    width: 600px;
+  }
 }
 
-@keyframes App-logo-spin {
-  from {
+@keyframes img_rotate {
+  0% {
     transform: rotate(0deg);
   }
-  to {
+
+  100% {
     transform: rotate(360deg);
   }
 }
+
+
+/* general styles */
