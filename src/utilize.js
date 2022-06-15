@@ -5,6 +5,18 @@ export const saveToLocalStorage = (key, obj) => {
   localStorage.setItem(key.toLowerCase(), JSON.stringify(obj));
 };
 
+export const heighlighKeyWord = (str) => {
+  const indexOfRightTag = str.indexOf('<');
+  const indexOfLeftTag = str.indexOf('>');
+  const textToHighlight = str.slice(indexOfRightTag + 1, indexOfLeftTag);
+  const restText = str.slice(indexOfLeftTag + 1);
+  return (
+    <p className='tasks__description first-letter-cup'>
+      <span style={{ color: '#0d6efd' }}>{textToHighlight}</span> {restText}
+    </p>
+  );
+};
+
 export const objHasKey = (obj, key) => obj.includes(key);
 
 export const excludeValueFromArray = (arr, valueToExclude) =>

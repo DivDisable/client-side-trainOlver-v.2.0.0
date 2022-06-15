@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 
-import Switch from 'react-switch';
 import BootstrapForm from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
@@ -14,6 +13,7 @@ import {
   objHasKey,
   buttonColorBasedOnBgColor,
   excludeValue,
+  saveToLocalStorage,
   fieldsetsBasedOnSport
 } from '../../utilize';
 import { ThemeContext } from '../../theme-context';
@@ -33,6 +33,7 @@ function Form({ showModal, setIsLoading, setTasks, setDifficulty }) {
   const buttonColor = buttonColorBasedOnBgColor(theme.bgColor);
 
   const getTasks = async (event) => {
+    setIsLoading(true);
     showModal();
     await fetch('http://localhost:8000', {
       method: 'POST',
@@ -45,8 +46,9 @@ function Form({ showModal, setIsLoading, setTasks, setDifficulty }) {
       .then((data) => {
         setTasks(data.tasks);
         setDifficulty(data.difficultyLvl);
+        saveToLocalStorage(theme.sport, data);
       });
-
+    
     setIsLoading(false);
   };
 
@@ -54,6 +56,15 @@ function Form({ showModal, setIsLoading, setTasks, setDifficulty }) {
     setIsRandom(!isRandom);
     setIsInputsEnable(!isInputsEnable);
     if (!isRandom) setFormData(initialFormData);
+  };
+
+  const getLastTasks = () => {
+    const dataStorage = JSON.parse(localStorage.getItem(theme.sport));
+    console.log(dataStorage.tsks);
+    console.log(dataStorage.difficultyLvl);
+    setTasks(dataStorage.tasks);
+    setDifficulty(dataStorage.difficultyLvl);
+    showModal();
   };
 
   useEffect(() => {
@@ -75,7 +86,7 @@ function Form({ showModal, setIsLoading, setTasks, setDifficulty }) {
             <span className='text_thin'>случайный поиск</span>
           </label>
           <Button
-            className={`text-capitalize border-0 w-100 btn_${theme.bgColor.slice(
+            className={`text-capitalize border-0 w-100 mb-2 btn_${theme.bgColor.slice(
               1
             )}`}
             size='lg'
@@ -83,6 +94,17 @@ function Form({ showModal, setIsLoading, setTasks, setDifficulty }) {
             style={{ backgroundColor: buttonColor, transition: '0.5s' }}
             onClick={getTasks}>
             go!
+          </Button>
+          <Button
+            className={`first-letter-cup border-0 w-100 btn_${theme.bgColor.slice(
+              1
+            )}`}
+            size='lg'
+            variant='primary'
+            disabled={localStorage.getItem(theme.sport) ? false : true}
+            style={{ backgroundColor: buttonColor, transition: '0.5s' }}
+            onClick={getLastTasks}>
+            <small>Последние задания</small>
           </Button>
         </div>
         <Row>

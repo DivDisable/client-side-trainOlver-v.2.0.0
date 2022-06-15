@@ -24,6 +24,11 @@ function Trainolver() {
     setModalShow(true);
   };
 
+
+  const closeModal = () => {
+    setModalShow(false);
+  };
+
   return (
     <ThemeContext.Provider value={[theme, toggleTheme]}>
       <Navigation />
@@ -34,7 +39,7 @@ function Trainolver() {
         setIsLoading={setIsLoading}
       />
       <Modal
-        onHide={() => setModalShow(false)}
+        onHide={closeModal}
         show={modalShow}
         className={`modal_custom modal_${theme.bgColor.slice(1)}`}
         theme={theme}

@@ -12,7 +12,7 @@ export default function Options({ task }) {
 
   return (
     <Container className='h-100'>
-      <Row className='justify-content-between'>
+      <Row className='justify-content-center'>
         {optionNames.map((optionName, index) => {
           const isCentering = index === optionNames.length - 1;
           const isOptionsOdd = optionNames.length % 2 === 0;
@@ -20,9 +20,8 @@ export default function Options({ task }) {
             <Col
               xs={6}
               sm={4}
-              className={`d-flex flex-column align-items-center mb-2 ${
-                isCentering && !isOptionsOdd && 'mx-auto'
-              }`}
+              lg={3}
+              className='d-flex flex-column align-items-center mb-2'
               key={index}>
               <div className='option__value rounded'>
                 <span>{options[optionName]}</span>

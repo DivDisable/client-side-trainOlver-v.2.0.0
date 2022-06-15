@@ -23,7 +23,6 @@ function Modal({
   };
 
   useEffect(() => {
-    // если модальное окно закрыто, скрыть диаграмму
     if (!show) {
       setShowDiagram(false);
     }
@@ -54,7 +53,7 @@ function Modal({
         <BootstrapModal.Title
           id='contained-modal-title-vcenter'
           className='text-capitalize'>
-          {difficulty}
+          {isLoading ? 'загрузка..' : difficulty}
         </BootstrapModal.Title>
       </BootstrapModal.Header>
       <BootstrapModal.Body>
@@ -75,6 +74,7 @@ function Modal({
         )}
         <Button
           onClick={toggleDiagram}
+          disabled={isLoading}
           className={`first-letter-cup btn_${theme.bgColor.slice(1)}`}
           style={{ backgroundColor: btnColor }}>
           {showDiagram ? 'вернуться к заданиям' : 'акценты'}
